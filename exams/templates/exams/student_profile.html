@@ -1,0 +1,13 @@
+{% extends "exams/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h5>Student Profile</h5>
+    <p>Name: {{student.f_name}} {{student.l_name}}</p>
+    <p>Class: {{student.darasa}}</p>
+    <p>Gender: {{student.gender}}</p>
+</div>
+
+{% endblock content %}
+

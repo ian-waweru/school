@@ -1,0 +1,25 @@
+{% extends 'exams/base.html' %}
+
+
+{% block content %}
+
+
+{% for stream in streams %}
+    <div class="dropdown" style="margin-bottom:10px">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{stream}}
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            {% for darasa in darasas %}
+                {% if darasa.stream == stream %}
+                    <li><a class="dropdown-item" href="{% url 'exams:class_list' darasa.daro_id %}">{{darasa}}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endfor %}
+
+<a class="btn btn-primary" href="{% url 'exams:stud_reg' %}">Add Student</a>
+
+{% endblock content %}

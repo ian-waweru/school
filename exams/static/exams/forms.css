@@ -1,0 +1,45 @@
+.form-group{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+form{
+    border: 1px solid #ccc;
+    display: block;
+    margin-top:0px;
+    padding: 10px;
+}
+
+form p{
+    border: 1px solid #ccc;
+    display: block;
+    padding: 5px 0;
+}
+
+form label{
+    display: block;
+    cursor:default;
+}
+
+form input{
+    border: 1px solid #ccc;
+    outline:none;
+    padding: 8px;
+}
+
+form select{
+    outline:none;
+    border: none;
+    background: #173459;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+form button{
+    border: none;
+    padding: 10px 15px;
+    background-color: #86c232;
+    color: #222629;
+}

@@ -1,0 +1,26 @@
+{% extends "exams/base.html" %}
+
+{% block content %}
+
+<head>
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href="{ static 'exams/profile.css'}" type="text/css">
+</head>
+
+
+<body>
+    <h1>Teacher, {{teacher}}</h1>
+
+    <div>
+        <h2>Subjects taught</h2>
+        <ul>
+            {% for subject in subjects %}
+            <li>{{subject}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+
+{% endblock content %}

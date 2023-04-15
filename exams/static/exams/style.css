@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0 auto;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    width: 98%;
+    background-color: #fff;
+    color: #333;
+}
+
+#main-header{
+    position: fixed;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    box-sizing: border-box;
+    margin: 0 auto;
+    border: 1px solid green;
+}
+
+.title img, a{
+    display: inline-block;
+}
+
+.title img{
+    border: solid 1px blue;
+    height: auto;
+    width: 10%;
+    margin: 0;
+}
+
+#img_left{
+    align-items: left;
+}
+
+#img_right{
+    align-items: right;
+}
+
+.heading{
+    display: inline-block;
+    width: 75%
+    border: 1px solid blue;
+    padding: 0;
+    margin: 0 15%;
+}
+.title a{
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    border: solid 1px #ccc;
+    margin: 0;
+}
+
+.motto{
+    margin: 0;
+    padding: 0
+    width: auto;
+    border: 1px solid blue;
+    display: block;
+    text-align: center;
+}
+
+#navbar {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+#navbar p{
+    border: solid 1px #ccc;
+}
+
+#navbar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul{
+    border: solid 1px red;
+    display: block;
+    margin: 0 auto;
+   /*list-style-type: disc;*/
+    /*margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;*/
+}
+
+#navbar li{
+    border: solid 1px #ccc;
+    display: inline-block;
+    width: 8%;
+    margin: 0 3%;
+    padding: 0;
+}
+
+li{
+    text-align: -webkit-match-parent;
+}
+
+#navbar a {
+    height: 4m;
+    width: 15sem;
+    display: inline-block;
+    background-color: #2b4a6f;
+    color: #aa9139;
+    box-shadow: 2px 2px 3px #aa9139;
+    margin-right: 5%;
+    padding: 5px 20px;
+    font-size: .8em;
+    letter-spacing: .1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 15px 15px 0 15px;
+}
+
+h2{
+    text-align: center;
+    text-transform: uppercase;
+}

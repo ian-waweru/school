@@ -1,0 +1,62 @@
+{% extends 'exams/base.html' %}
+
+{% block content %}
+
+
+
+<head>
+    <title></title>
+    {% load static %}
+    <!--<link rel="stylesheet" href="{% static 'exams/tables.css' %}" type="text/css">-->
+</head>
+
+<body>
+    <div class="container">
+        <h5 class="text-center">Class {{darasa.daro_name}}</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Admission Number</th>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.adm }}</td>
+                    <td><a href="{% url 'exams:profiler' student.adm %}" style="text-decoration:none; color:black;">{{ student.f_name }} {{ student.l_name }}</a></td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.birthday }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!--
+    <h2>Class {{darasa.daro_name}}</h2>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Admission Number</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Class</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.adm }}</td>
+                <td><a href="{% url 'exams:profiler' student.adm %}">{{ student.f_name }} {{ student.l_name }}</a></td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.birthday }}</td>
+                <td>{{ student.darasa }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>-->
+</body>
+
+{% endblock content %}
