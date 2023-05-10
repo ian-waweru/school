@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 # from django.http import HttpResponseRedirect
-from .forms import CreateStudentForm, CreateTeacherForm
-from .models import Subject, Student, Teacher, Stream, Darasa
-
-from .forms import CreateStudentForm
+from .forms import CreateStudentForm, CreateTeacherForm, NewTerm, NewExam
+from .models import Subject, Student, Teacher, Stream, Darasa, Examination
 
 
 # Create your views here.
@@ -21,6 +20,7 @@ def student_registration(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Reqistered successfully")
             return redirect('exams:index')
 
     context = {'form': form}
@@ -34,9 +34,23 @@ def teacher_registration(request):
         form = CreateTeacherForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Reqistered successfully nice!")
             return redirect('exams:index')
     context = {'form': form}
     return render(request, 'exams/teacher_registration.html', context)
+
+
+def term_creation(request):
+    if request.method != 'POST':
+        form = NewTerm()
+    else:
+        form = NewTerm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Reqistered successfully nice!")
+            return redirect('exams:index')
+    context = {'form': form}
+    return render(request, 'exams/new_term.html', context)
 
 
 def student_profile_page(request, adm_no):
@@ -47,8 +61,7 @@ def student_profile_page(request, adm_no):
 
 def teacher_profile_page(request, t_id):
     teacher = Teacher.objects.get(tch_id=t_id)
-    subjects = teacher.subjects.all()
-    context = {'teacher': teacher, 'subjects': subjects}
+    context = {'teacher': teacher}
     return render(request, "exams/teacher_profile.html", context)
 
 
@@ -59,8 +72,33 @@ def all_students(request):
     return render(request, 'exams/students.html', context)
 
 
+def all_teachers(request):
+    teachers = Teacher.objects.all()
+    context = {'teachers': teachers}
+    return render(request, 'exams/teachers.html', context)
+
+
 def student_class_list(request, daro_id):
     darasa = Darasa.objects.get(pk=daro_id)
     students = Student.objects.all().filter(darasa=darasa)
     context = {'darasa': darasa, 'students': students}
     return render(request, 'exams/daro_list.html', context)
+
+
+def create_exam(request):
+    if request.method != 'POST':
+        form = NewExam()
+    else:
+        form = NewExam(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Reqistered successfully nice!")
+            return redirect('exams:index')
+    context = {'form': form}
+    return render(request, 'exams/create_exam.html', context)
+
+
+def exams_page(request):
+    exams = Examination.objects.all()
+    context = {'exams': exams}
+    return render(request, 'exams/exams_page.html', context)

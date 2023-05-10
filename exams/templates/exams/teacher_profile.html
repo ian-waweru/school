@@ -4,23 +4,25 @@
 
 <head>
     <title></title>
-    {% load static %}
-    <link rel="stylesheet" href="{ static 'exams/profile.css'}" type="text/css">
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{ static 'exams/profile.css'}" type="text/css"> -->
 </head>
 
 
 <body>
-    <h1>Teacher, {{teacher}}</h1>
+    <div class="container">
+        <h4 class="text-center">Teacher, {{teacher}}</h4>
 
-    <div>
-        <h2>Subjects taught</h2>
-        <ul>
-            {% for subject in subjects %}
-            <li>{{subject}}</li>
-            {% endfor %}
-        </ul>
+        <div class="card-body">
+            <p>TSC: {{teacher.tsc_no}}</p>
+        </div>
+        <div class="card-body">
+            <p>Phone:{{teacher.telephone}}</p>
+        </div>
+        <div class="card-body">
+            <p>Email: {{teacher.email}}</p>
+        </div>
     </div>
-
 </body>
 
 {% endblock content %}

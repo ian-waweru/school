@@ -1,0 +1,92 @@
+{% extends 'exams/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<body>
+    <!--<div class="container">
+        <h5 class="text-center">Teachers</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>TSC</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <!-- <th>Subjects</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for teacher in teachers %}
+                <tr>
+                    <td>
+                        <a href="{% url 'exams:t_profile' teacher.tch_id %}" style="text-decoration:none; color:black;">
+                            {{ teacher.f_name }} {{ teacher.l_name }}
+                        </a>
+                    </td>
+                    <td>{{ teacher.tsc_no }}</td>
+                    <td>{{ teacher.telephone }}</td>
+                    <td>{{ teacher.email }}</td>
+                    <!-- <td>{{ teacher.subjects }}</td>
+                </tr>
+                {% empty %}
+                <tr>No teachers registered yet</tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <a class="btn btn-custom hover-effect" href="{% url 'exams:teacher_reg' %}">Add Teacher</a>
+    </div>-->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h2 class="text-white text-center">
+                    Meet our team members
+                </h2>
+            </div>
+            {% for teacher in teachers %}
+            <div class="col-lg-3 col-md-4 col-sm-3">
+                <div class="shadow d-flex flex-column justify-content-center align-items-center p-3 bg-three rounded-lg">
+                    <div class="person-img">
+                        <img src="{% static 'exams/images/showcase.avif' %}" alt="" class="img-fluid rounded-circle">
+                    </div>
+                    <div class="person-name my-2">
+                            <h3 class="text-white">{{ teacher.f_name }} {{ teacher.l_name }}</h3>
+                    </div>
+                    <div class="info">
+                        <h6 class="text-white">English Teacher</h6>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="text-white">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <button class="btn btn-custom hover-effect btn-lg btn-block">
+                        <a href="{% url 'exams:t_profile' teacher.tch_id %}" style="text-decoration:none; color:black;">
+                            View Profile
+                        </a>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <a class="btn btn-custom hover-effect mt-3" href="{% url 'exams:teacher_reg' %}">Add Teacher</a>
+    </div>
+</body>
+
+
+
+{% endblock content %}

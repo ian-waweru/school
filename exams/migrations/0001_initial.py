@@ -27,6 +27,15 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='Examination',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=55)),
+                ('start_date', models.DateField()),
+                ('end_date', models.DateField()),
+            ],
+        ),
+        migrations.CreateModel(
             name='Staff',
             fields=[
                 ('staff_id', models.AutoField(default=None, primary_key=True, serialize=False)),
@@ -53,7 +62,7 @@ class Migration(migrations.Migration):
             name='Term',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.IntegerField(choices=[(None, 'Pick Term'), (1, 'One'), (2, 'Two'), (3, 'Three')], default=None)),
+                ('name', models.IntegerField(choices=[(None, 'Pick Term'), (1, 'Term One'), (2, 'Term Two'), (3, 'Term Three')], default=None)),
                 ('start_date', models.DateField()),
                 ('closing_date', models.DateField()),
             ],
@@ -65,7 +74,7 @@ class Migration(migrations.Migration):
                 ('f_name', models.CharField(max_length=15)),
                 ('l_name', models.CharField(max_length=15)),
                 ('tsc_no', models.IntegerField(default=None)),
-                ('telephone', models.BigIntegerField(null=True)),
+                ('telephone', models.IntegerField(null=True)),
                 ('email', models.EmailField(max_length=20, null=True)),
                 ('subjects', models.ManyToManyField(to='exams.subject')),
             ],
@@ -83,13 +92,13 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Examination',
+            name='ExamResult',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=55)),
-                ('start_date', models.DateField()),
-                ('end_date', models.DateField()),
-                ('term', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='exams.term')),
+                ('score', models.IntegerField(default=None)),
+                ('exam', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='exams.examination')),
+                ('student', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='exams.student')),
+                ('subject', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='exams.subject')),
             ],
         ),
         migrations.AddField(

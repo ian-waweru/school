@@ -7,12 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static 'exams/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'exams/css/style.css' %}" type="text/css">
     </head>
-    <body>
+    <body style="background-color: #FCEFEF;">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
+            <div class="container-fluid" style="background-color: #BEE4D7;">
                 <a class="navbar-brand" href="{% url 'exams:index' %}">
-                    <img src="{% static 'exams/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    <img src="{% static 'exams/images/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                     Cheptoroi Secondary School
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,19 +22,37 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Exams</a>
+                            <a class="nav-link" href="{% url 'exams:exams_list' %}">Exams</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'exams:allstudents' %}">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Notifications</a>
+                            <a class="nav-link" href="{% url 'exams:allteachers' %}">Teachers</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    <script src="{% static 'exams/js/bootstrap.bundle.js' %}"></script>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Sidebar</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+            <!-- Sidebar content goes here -->
+                <a class="btn btn-custom hover-effect-two" href="{% url 'exams:allstudents' %}">Students</a>
+
+            </div>
+        </div>
+
+        <button class="btn btn-custom-sidebar hover-effect-two" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" style="position:fixed; margin-top:230px; width:7%; font-size:14px;">
+          Sidebar
+        </button>
+        <script src="{% static 'exams/js/bootstrap.bundle.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
 {% block content %} {% endblock content%}

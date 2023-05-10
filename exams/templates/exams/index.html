@@ -1,11 +1,76 @@
 {% extends "exams/base.html" %}
 
-{% block content %}
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Exams Hub</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, amet assumenda, corporis dicta dolor eligendi eveniet, hic modi obcaecati odit officia officiis quas ratione repellendus repudiandae vel veritatis vitae? Consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolore exercitationem hic iure non odio optio saepe sunt suscipit, temporibus tenetur, vel. Beatae corporis cumque error itaque possimus. Impedit, suscipit.</p>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Sidebar</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Sidebar content goes here -->
   </div>
 </div>
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+  Open Sidebar
+</button>
+
+<!--
+  primary color: #FCEFEF
+
+  secondary color:
+  #BEE4D7
+  #7FD8BE
+  #A1FCDF
+
+  tertiary:
+  #FCD29F
+  #FCAB64
+-->
+
+{% block content %}
+{% load static %}
+<body>
+
+
+<!--
+    <div class="container m-2">
+        <div class="row">
+        <div class="col-3">
+          <div class="card p-2">
+            <h5 class="card-title">Exams Hub</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, amet assumenda, corporis dicta dolor eligendi eveniet, hic modi obcaecati odit officia officiis quas ratione repellendus repudiandae vel veritatis vitae? Consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolore exercitationem hic iure non odio optio saepe sunt suscipit, temporibus tenetur, vel. Beatae corporis cumque error itaque possimus. Impedit, suscipit.</p>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="card p-2">
+            <h5 class="card-title">Exams Hub</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, amet assumenda, corporis dicta dolor eligendi eveniet, hic modi obcaecati odit officia officiis quas ratione repellendus repudiandae vel veritatis vitae? Consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolore exercitationem hic iure non odio optio saepe sunt suscipit, temporibus tenetur, vel. Beatae corporis cumque error itaque possimus. Impedit, suscipit.</p>
+          </div>
+        </div>
+    </div>
+    </div>
+-->
+
+<div class="container p-3" style="border: 1px solid black;">
+  <div class="clearfix">
+    <img src="{% static 'exams/images/showcase.avif' %}" class="col-md-6 float-md-end mb-3 ms-md-3" alt="SHOWCASE">
+
+    <p>
+      A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+    </p>
+
+    <p>
+      As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+    </p>
+
+    <p>
+      And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+    </p>
+  </div>
+</div>
+
+<!-- Adding number to website
+<a href="tel:+0792546671" class="btn btn-primary">Call 0792546671 for further assistance</a>
+-->
 
 {% endblock content %}

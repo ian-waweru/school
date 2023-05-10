@@ -9,11 +9,41 @@
 </head>
 <body>
     <div class="form-group">
-        <form method="post" action="{% url 'exams:stud_reg' %}" class="card" autocomplete="off">
-        {% csrf_token %}
-        {{form|crispy}}
-        <button type="submit">Register</button>
+        <form method="post" action="{% url 'exams:stud_reg' %}" class="card p-3 mt-3" autocomplete="off">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    {{form.f_name|as_crispy_field}}
+                    {{form.l_name|as_crispy_field}}
+
+                </div>
+                <div class="col-6">
+                    {{form.adm|as_crispy_field}}
+                    {{form.gender|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    {{form.birthday|as_crispy_field}}
+                </div>
+                <div class="col-5">
+                    {{form.darasa|as_crispy_field}}
+                </div>
+                <!--<div class="col-5">
+                    {{form.profile_pic|as_crispy_field}}
+                </div>-->
+            </div>
+            <button type="submit" class="btn btn-outline-primary mt-3" style="width:90px;">Submit</button>
         </form>
+
+        <!--Message from backend-->
+        {% for message in messages %}
+            {% if message.tags == "success" %}
+                <div class=" text-center alert alert-primary alert-dismissible fade show" role="alert">{{message}}
+                    <a href="{% url 'exams:allstudents' %}" type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </body>
 {% endblock content %}

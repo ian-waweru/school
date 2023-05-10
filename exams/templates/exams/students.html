@@ -3,23 +3,28 @@
 
 {% block content %}
 
+<div class="container">
+    {% for stream in streams %}
+    <button class="btn btn-outline-secondary hover-effect-two dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        FORM {{stream}}
+    </button>
+    <div class="dropdown" style="margin-bottom:10px;">
 
-{% for stream in streams %}
-    <div class="dropdown" style="margin-bottom:10px">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{stream}}
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-            {% for darasa in darasas %}
-                {% if darasa.stream == stream %}
-                    <li><a class="dropdown-item" href="{% url 'exams:class_list' darasa.daro_id %}">{{darasa}}</a></li>
-                {% endif %}
-            {% endfor %}
+        <ul class="dropdown-menu bg-one">
+        {% for darasa in darasas %}
+            {% if darasa.stream == stream %}
+                <li>
+                    <a class="dropdown-item" href="{% url 'exams:class_list' darasa.daro_id %}">{{darasa.daro_name}}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
         </ul>
+
     </div>
+    {% endfor %}
 
-{% endfor %}
 
-<a class="btn btn-primary" href="{% url 'exams:stud_reg' %}">Add Student</a>
+    <a class="btn btn-custom hover-effect" href="{% url 'exams:stud_reg' %}">Add Student</a>
 
+</div>
 {% endblock content %}
